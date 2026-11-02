@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOLT MOTORS | Ducati Experience</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red: #ed252e;
+  --black: #08090b;
+  --panel: #111317;
+  --gray: #92949b;
+  --white: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAVBAR */
+
+header {
+  height: 78px;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #25272b;
+  background: #08090b;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.logo span { color: var(--red); }
+
+nav {
+  display: flex;
+  gap: 35px;
+}
+
+nav a {
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--red); }
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  padding: 75px 7% 85px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 45%, #25262c 0%, #111216 45%, #08090b 80%);
+}
+
+.eyebrow {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(55px, 9vw, 105px);
+  line-height: .95;
+  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero h1 span { color: var(--red); }
+
+.hero-description {
+  color: #999;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* 3D VIEWER */
+
+.viewer {
+  max-width: 1100px;
+  margin: 55px auto 0;
+  background: #101114;
+  border: 1px solid #303136;
+  box-shadow: 0 25px 80px #0008;
+  overflow: hidden;
+}
+
+.viewer-header {
+  padding: 23px;
+  text-align: center;
+  background: #111216;
+}
+
+.viewer-header h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 27px;
+  letter-spacing: 3px;
+}
+
+.viewer-header p {
+  color: #888;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 7px;
+}
+
+.viewer-frame {
+  width: 100%;
+  height: 560px;
+  background:
+    radial-gradient(ellipse at center, #34363c, #111216 75%);
+  position: relative;
+}
+
+.viewer-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.viewer-instructions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+  padding: 22px;
+  background: #0b0c0e;
+  border-top: 1px solid #292b30;
+}
+
+.instruction {
+  color: #aaa;
+  font-size: 11px;
+}
+
+.instruction span {
+  color: var(--red);
+  margin-right: 8px;
+  font-size: 15px;
+}
+
+.viewer-caption {
+  padding: 15px;
+  text-align: center;
+  color: #777;
+  font-size: 10px;
+  letter-spacing: 1px;
+  background: #0b0c0e;
+}
+
+/* ABOUT */
+
+.section {
+  padding: 110px 9%;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(42px, 6vw, 65px);
+  line-height: 1;
+  margin: 18px 0 25px;
+  text-transform: uppercase;
+}
+
+.section-title span { color: var(--red); }
+
+.about-text p {
+  color: #999;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.about-visual {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #292b30;
+  background:
+    radial-gradient(circle at center, #46191c, #171013 55%, #101114 85%);
+}
+
+.about-visual strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 80px;
+  letter-spacing: 7px;
+  color: #ffffff15;
+}
+
+/* SERVICES */
+
+.services {
+  background: #101114;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 45px;
+}
+
+.service-card {
+  padding: 35px 28px;
+  background: #181a1f;
+  border: 1px solid #2b2d32;
+  transition: .3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--red);
+}
+
+.service-number {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.service-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 27px;
+  margin: 20px 0 13px;
+  text-transform: uppercase;
+}
+
+.service-card p {
+  color: #888;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #291416, #08090b 70%);
+}
+
+.contact p {
+  color: #999;
+  font-size: 13px;
+  margin: 20px 0 30px;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 16px 35px;
+  background: var(--red);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.contact-button:hover {
+  background: white;
+  color: black;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 30px 8%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #25272b;
+  color: #666;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 750px) {
+
+  header { padding: 0 5%; }
+
+  .menu-btn { display: block; }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    flex-direction: column;
+    gap: 25px;
+    background: #101114;
+  }
+
+  nav.open { display: flex; }
+
+  .hero { padding: 60px 4%; }
+
+  .viewer { margin-top: 35px; }
+
+  .viewer-frame { height: 390px; }
+
+  .viewer-instructions { gap: 15px; }
+
+  .instruction { font-size: 10px; }
+
+  .section { padding: 75px 7%; }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#inicio" class="logo">VOLT<span>.</span> MOTORS</a>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="navigation">
+    <a href="#inicio">Inicio</a>
+    <a href="#empresa">Empresa</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- INICIO Y VISOR 3D -->
+
+<section class="hero" id="inicio">
+
+  <div class="eyebrow">Engineering · Performance · Design</div>
+
+  <h1>Beyond the <span>Ride.</span></h1>
+
+  <p class="hero-description">
+    Descubre la ingeniería, el diseño y la potencia de una motocicleta excepcional.
+  </p>
+
+  <div class="viewer">
+
+    <div class="viewer-header">
+      <h2>360° EXPERIENCE</h2>
+      <p>EXPLORE THE DUCATI PANIGALE V4</p>
+    </div>
+
+    <div class="viewer-frame">
+
+      <iframe
+        title="Ducati Panigale V4 - Modelo 3D"
+        src="https://sketchfab.com/models/47f87e3d70f644289e34cbff91255d0c/embed?autostart=1&ui_theme=dark&ui_controls=1&ui_infos=0"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen
+        loading="eager">
+      </iframe>
+
+    </div>
+
+    <div class="viewer-instructions">
+
+      <div class="instruction">
+        <span>↔</span> Arrastra para girar
+      </div>
+
+      <div class="instruction">
+        <span>⌕</span> Usa la rueda para acercar
+      </div>
+
+      <div class="instruction">
+        <span>⛶</span> Activa pantalla completa
+      </div>
+
+    </div>
+
+    <div class="viewer-caption">
+      DUCATI PANIGALE V4 · INTERACTIVE 3D MODEL
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EMPRESA -->
+
+<section class="section about" id="empresa">
+
+  <div class="about-text">
+
+    <div class="eyebrow">Who we are</div>
+
+    <h2 class="section-title">
+      Más que una <span>motocicleta.</span>
+    </h2>
+
+    <p>
+      En VOLT MOTORS creemos que cada motocicleta representa
+      una combinación de tecnología, diseño e innovación.
+
+      Nuestro objetivo es ofrecer experiencias únicas a quienes
+      viven la pasión por el motociclismo.
+
+      <br><br>
+
+      Queremos acercar la ingeniería de cada motocicleta a nuestros
+      usuarios mediante experiencias digitales interactivas.
+    </p>
+
+  </div>
+
+  <div class="about-visual">
+    <strong>VOLT.</strong>
+  </div>
+
+</section>
+
+<!-- SERVICIOS -->
+
+<section class="section services" id="servicios">
+
+  <div class="eyebrow">What we offer</div>
+
+  <h2 class="section-title">
+    Nuestra <span>experiencia.</span>
+  </h2>
+
+  <div class="services-grid">
+
+    <article class="service-card">
+
+      <div class="service-number">01 / EXPERIENCE</div>
+
+      <h3>Mantenimientos</h3>
+
+      <p>
+        Explora nuestras motocicletas
+        y descubre sus diferentes perspectivas.
+      </p>
+
+    </article>
+
+    <article class="service-card">
+
+      <div class="service-number">02 / ENGINEERING</div>
+
+      <h3>Ingeniería</h3>
+
+      <p>
+        Conoce los componentes, materiales y tecnología
+        que forman parte de cada motocicleta.
+      </p>
+
+    </article>
+
+    <article class="service-card">
+
+      <div class="service-number">03 / SUPPORT</div>
+
+      <h3>Atención especializada</h3>
+
+      <p>
+        Recibe información y orientación para conocer
+        nuestras motocicletas y servicios.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section class="section contact" id="contacto">
+
+  <div class="eyebrow">Get in touch</div>
+
+  <h2 class="section-title">
+    Vive la <span>experiencia.</span>
+  </h2>
+
+  <p>
+    Conoce más sobre VOLT MOTORS y nuestro concepto de innovación.
+  </p>
+
+  <a class="contact-button"
+     href="mailto:contacto@voltmotors.com">
+    CONTACTAR EMPRESA
+  </a>
+
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 VOLT MOTORS. TODOS LOS DERECHOS RESERVADOS.</div>
+  <div>ENGINEERED FOR THE RIDE.</div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navigation')
+    .classList.toggle('open');
+}
+
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navigation')
+      .classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>
